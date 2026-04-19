@@ -369,6 +369,72 @@
       transform: translateY(-1px);
     }
 
+    .kit-form-wrap {
+      width: 100%;
+      max-width: 480px;
+    }
+    /* Override Kit's default styles */
+    .kit-form-wrap .formkit-form {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    .kit-form-wrap .formkit-input {
+      background: rgba(247,242,236,0.08) !important;
+      border: 1px solid rgba(247,242,236,0.2) !important;
+      color: var(--white) !important;
+      font-family: 'Crimson Text', Georgia, serif !important;
+      font-size: 16px !important;
+      padding: 16px 20px !important;
+      border-radius: 0 !important;
+    }
+    .kit-form-wrap .formkit-submit {
+      background: var(--white) !important;
+      color: var(--ink) !important;
+      font-family: 'Oswald', sans-serif !important;
+      font-weight: 500 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.3em !important;
+      text-transform: uppercase !important;
+      border-radius: 0 !important;
+      padding: 16px 28px !important;
+    }
+    .kit-form-wrap .formkit-submit:hover {
+      background: var(--off-white) !important;
+    }
+
+    .kit-form-wrap .form-row input[type="email"] {
+      flex: 1;
+      padding: 16px 20px;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 16px;
+      background: rgba(247,242,236,0.08);
+      border: 1px solid rgba(247,242,236,0.2);
+      border-right: none;
+      color: var(--white);
+      outline: none;
+    }
+    .kit-form-wrap .form-row input[type="email"]::placeholder { color: rgba(247,242,236,0.35); }
+    .kit-form-wrap .form-row input[type="email"]:focus {
+      background: rgba(247,242,236,0.12);
+      border-color: rgba(247,242,236,0.45);
+    }
+    .kit-form-wrap .form-row button {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      background: var(--white);
+      color: var(--ink);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .kit-form-wrap .form-row button:hover { background: var(--off-white); }
+
     .form-success {
       display: none;
       font-family: 'Crimson Text', Georgia, serif;
@@ -587,12 +653,13 @@
     <h2 class="newsletter-title reveal">Be the first<br><em style="font-style:italic;color:rgba(247,242,236,0.55)">to know.</em></h2>
     <p class="newsletter-sub reveal">Casting announcements, performance dates, behind-the-scenes updates — straight to your inbox.</p>
 
-    <form class="form-row reveal" id="form-wrap" name="mailing-list" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="mailing-list" />
-      <input type="email" name="email" id="email-input" placeholder="your@email.com" autocomplete="email" required />
-      <button type="submit">Sign Up</button>
-    </form>
-    <p class="form-success" id="form-success">You're on the list. See you at the show.</p>
+    <div class="reveal kit-form-wrap">
+      <form class="form-row" id="kit-form" onsubmit="submitToKit(event)">
+        <input type="email" id="kit-email" placeholder="your@email.com" autocomplete="email" required />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p class="form-success" id="form-success">You're on the list. See you at the show.</p>
+    </div>
   </section>
 
   <!-- ─── FOOTER ─── -->
@@ -664,20 +731,20 @@
     }, { threshold: 0.12 });
     revealEls.forEach(el => obs.observe(el));
 
-    // ─── FORM ────────────────────────────────
-    function handleSignup() {
-      const val = document.getElementById('email-input').value.trim();
-      if (!val || !val.includes('@')) {
-        document.getElementById('email-input').style.borderColor = 'rgba(220,60,60,0.7)';
-        return;
-      }
-      document.getElementById('form-wrap').style.display = 'none';
+    // ─── KIT FORM ────────────────────────────
+    async function submitToKit(e) {
+      e.preventDefault();
+      const email = document.getElementById('kit-email').value.trim();
+      try {
+        await fetch('https://app.kit.com/forms/594f51dabd/subscriptions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email_address: email })
+        });
+      } catch(err) {}
+      document.getElementById('kit-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     }
-
-    document.getElementById('email-input').addEventListener('keydown', e => {
-      if (e.key === 'Enter') handleSignup();
-    });
   </script>
 
   <template id="__bundler_thumbnail">
