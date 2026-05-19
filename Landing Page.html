@@ -76,14 +76,9 @@
     }
 
     .hero-title {
-      font-family: 'Bowlby One', 'Rockwell', Georgia, serif;
-      font-weight: 400;
-      font-size: clamp(56px, 11vw, 160px);
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-align: center;
+      width: min(720px, 88vw);
+      height: auto;
+      display: block;
       animation: fadeUp 1s 0.2s both;
     }
 
@@ -595,7 +590,7 @@
   <section class="hero">
     <div class="hero-content">
       <p class="hero-eyebrow">A New Musical</p>
-      <h1 class="hero-title">HOMEBOUND</h1>
+      <h1 style="margin:0;padding:0;line-height:0;"><img class="hero-title" src="assets/homebound-logo-cream.png" alt="HOMEBOUND" /></h1>
       <p class="hero-subtitle">Book &nbsp;·&nbsp; Music &nbsp;·&nbsp; Lyrics by Zach Adam</p>
 
       <div class="title-rule">
@@ -605,7 +600,7 @@
       </div>
 
       <div class="hero-poster">
-        <img src="assets/Poster1.jpg?v=2" alt="Homebound — A New Musical" />
+        <img src="assets/Poster1.jpg?v=3" alt="Homebound — A New Musical" />
       </div>
 
       <div class="hero-cta">
