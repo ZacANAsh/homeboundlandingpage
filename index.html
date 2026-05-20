@@ -12,11 +12,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --crimson:   #7A0808;
-      --crimson-dark: #4A0404;
-      --crimson-mid: #920C0C;
-      --white:     #F7F2EC;
-      --off-white: #EDE5D8;
+      --crimson:   #850A26;
+      --crimson-dark: #4B0714;
+      --crimson-mid: #8D0D26;
+      --white:     #F5E4C2;
+      --off-white: #EBD8B0;
       --blue:      #1C4E96;
       --blue-light:#2B6CC4;
       --ink:       #1A0A0A;
@@ -40,7 +40,7 @@
       align-items: center;
       justify-content: flex-start;
       overflow: hidden;
-      background: radial-gradient(ellipse at 50% 30%, #9E1010 0%, #6B0808 45%, #3D0303 100%);
+      background: radial-gradient(ellipse at 50% 35%, #8D0D26 0%, #6E0C1B 45%, #4B0714 100%);
     }
 
     /* subtle grain texture */
@@ -61,7 +61,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 56px 24px 40px;
+      padding: 56px 24px 120px;
     }
 
     .hero-eyebrow {
@@ -70,20 +70,15 @@
       font-size: clamp(12px, 1.6vw, 16px);
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.7);
+      color: rgba(245,228,194,0.7);
       margin-bottom: 12px;
       animation: fadeUp 1s 0.1s both;
     }
 
     .hero-title {
-      font-family: 'Bowlby One', 'Rockwell', Georgia, serif;
-      font-weight: 400;
-      font-size: clamp(56px, 11vw, 160px);
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-align: center;
+      width: min(720px, 88vw);
+      height: auto;
+      display: block;
       animation: fadeUp 1s 0.2s both;
     }
 
@@ -93,7 +88,7 @@
       font-size: clamp(12px, 1.8vw, 18px);
       letter-spacing: 0.55em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.65);
+      color: rgba(245,228,194,0.65);
       margin-top: 16px;
       animation: fadeUp 1s 0.35s both;
     }
@@ -111,7 +106,7 @@
     .title-rule span {
       flex: 1;
       height: 1px;
-      background: rgba(247,242,236,0.25);
+      background: rgba(245,228,194,0.25);
     }
     .title-rule em {
       font-family: 'Oswald', sans-serif;
@@ -120,7 +115,7 @@
       font-size: 10px;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.4);
+      color: rgba(245,228,194,0.4);
     }
 
     /* Poster image */
@@ -137,10 +132,39 @@
     }
 
     .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
       animation: fadeUp 1s 0.9s both;
     }
 
-    .btn-primary {
+    .cta-eyebrow {
+      font-family: 'Special Elite', 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(245,228,194,0.65);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cta-eyebrow::before,
+    .cta-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: rgba(245,228,194,0.35);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary, .btn-secondary {
       display: inline-block;
       font-family: 'Oswald', sans-serif;
       font-weight: 500;
@@ -148,15 +172,26 @@
       letter-spacing: 0.35em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--ink);
-      background: var(--white);
-      padding: 16px 44px;
-      border: none;
+      padding: 16px 36px;
+      border: 1px solid var(--white);
       cursor: pointer;
       transition: background 0.2s, color 0.2s, transform 0.15s;
     }
+    .btn-primary {
+      color: var(--ink);
+      background: var(--white);
+    }
     .btn-primary:hover {
       background: var(--off-white);
+      border-color: var(--off-white);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      color: var(--white);
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      background: rgba(245,228,194,0.08);
       transform: translateY(-2px);
     }
 
@@ -179,12 +214,12 @@
       font-size: 9px;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.3);
+      color: rgba(245,228,194,0.3);
     }
     .scroll-hint .arrow {
       width: 1px;
       height: 36px;
-      background: linear-gradient(to bottom, rgba(247,242,236,0.3), transparent);
+      background: linear-gradient(to bottom, rgba(245,228,194,0.3), transparent);
       animation: arrowBob 2s ease-in-out infinite;
     }
 
@@ -301,7 +336,7 @@
       font-size: 11px;
       letter-spacing: 0.45em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.45);
+      color: rgba(245,228,194,0.45);
       margin-bottom: 16px;
     }
 
@@ -317,7 +352,7 @@
     .newsletter-sub {
       font-family: 'Crimson Text', Georgia, serif;
       font-size: clamp(16px, 1.8vw, 20px);
-      color: rgba(247,242,236,0.6);
+      color: rgba(245,228,194,0.6);
       max-width: 460px;
       margin-bottom: 48px;
       line-height: 1.6;
@@ -335,19 +370,19 @@
       padding: 16px 20px;
       font-family: 'Crimson Text', Georgia, serif;
       font-size: 16px;
-      background: rgba(247,242,236,0.08);
-      border: 1px solid rgba(247,242,236,0.2);
+      background: rgba(245,228,194,0.08);
+      border: 1px solid rgba(245,228,194,0.2);
       border-right: none;
       color: var(--white);
       outline: none;
       transition: border-color 0.2s, background 0.2s;
     }
     .form-row input[type="email"]::placeholder {
-      color: rgba(247,242,236,0.35);
+      color: rgba(245,228,194,0.35);
     }
     .form-row input[type="email"]:focus {
-      background: rgba(247,242,236,0.12);
-      border-color: rgba(247,242,236,0.45);
+      background: rgba(245,228,194,0.12);
+      border-color: rgba(245,228,194,0.45);
     }
 
     .form-row button {
@@ -378,8 +413,8 @@
       border: none !important;
     }
     .kit-form-wrap .formkit-input {
-      background: rgba(247,242,236,0.08) !important;
-      border: 1px solid rgba(247,242,236,0.2) !important;
+      background: rgba(245,228,194,0.08) !important;
+      border: 1px solid rgba(245,228,194,0.2) !important;
       border-right: none !important;
       color: var(--white) !important;
       font-family: 'Crimson Text', Georgia, serif !important;
@@ -387,7 +422,7 @@
       padding: 16px 20px !important;
       border-radius: 0 !important;
     }
-    .kit-form-wrap .formkit-input::placeholder { color: rgba(247,242,236,0.35) !important; }
+    .kit-form-wrap .formkit-input::placeholder { color: rgba(245,228,194,0.35) !important; }
     .kit-form-wrap .formkit-submit {
       background: var(--white) !important;
       color: var(--ink) !important;
@@ -409,16 +444,16 @@
       padding: 16px 20px;
       font-family: 'Crimson Text', Georgia, serif;
       font-size: 16px;
-      background: rgba(247,242,236,0.08);
-      border: 1px solid rgba(247,242,236,0.2);
+      background: rgba(245,228,194,0.08);
+      border: 1px solid rgba(245,228,194,0.2);
       border-right: none;
       color: var(--white);
       outline: none;
     }
-    .kit-form-wrap .form-row input[type="email"]::placeholder { color: rgba(247,242,236,0.35); }
+    .kit-form-wrap .form-row input[type="email"]::placeholder { color: rgba(245,228,194,0.35); }
     .kit-form-wrap .form-row input[type="email"]:focus {
-      background: rgba(247,242,236,0.12);
-      border-color: rgba(247,242,236,0.45);
+      background: rgba(245,228,194,0.12);
+      border-color: rgba(245,228,194,0.45);
     }
     .kit-form-wrap .form-row button {
       font-family: 'Oswald', sans-serif;
@@ -441,13 +476,13 @@
       font-family: 'Crimson Text', Georgia, serif;
       font-style: italic;
       font-size: 20px;
-      color: rgba(247,242,236,0.75);
+      color: rgba(245,228,194,0.75);
     }
 
     /* ─── FOOTER ───────────────────────────────────────── */
     footer {
       background: var(--crimson-dark);
-      border-top: 1px solid rgba(247,242,236,0.08);
+      border-top: 1px solid rgba(245,228,194,0.08);
       padding: 48px clamp(24px, 8vw, 80px) 40px;
       display: flex;
       flex-direction: column;
@@ -470,14 +505,14 @@
       font-size: 9px;
       letter-spacing: 0.45em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.4);
+      color: rgba(245,228,194,0.4);
       margin-bottom: 4px;
     }
     .footer-credit-name {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 18px;
       font-weight: 700;
-      color: rgba(247,242,236,0.75);
+      color: rgba(245,228,194,0.75);
     }
 
     .footer-social {
@@ -490,7 +525,7 @@
       font-size: 10px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.4);
+      color: rgba(245,228,194,0.4);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -503,13 +538,13 @@
       font-weight: 300;
       font-size: 9px;
       letter-spacing: 0.25em;
-      color: rgba(247,242,236,0.2);
+      color: rgba(245,228,194,0.2);
     }
 
     .footer-divider {
       width: 1px;
       height: 14px;
-      background: rgba(247,242,236,0.15);
+      background: rgba(245,228,194,0.15);
     }
 
     /* ─── ANIMATIONS ───────────────────────────────────── */
@@ -549,7 +584,7 @@
       right: 24px;
       z-index: 9999;
       background: #1A0A0A;
-      border: 1px solid rgba(247,242,236,0.15);
+      border: 1px solid rgba(245,228,194,0.15);
       padding: 20px 24px;
       width: 240px;
       font-family: 'Oswald', sans-serif;
@@ -559,7 +594,7 @@
       font-size: 11px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.5);
+      color: rgba(245,228,194,0.5);
       margin-bottom: 16px;
     }
     .tweak-row {
@@ -570,13 +605,13 @@
       font-size: 9px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(247,242,236,0.4);
+      color: rgba(245,228,194,0.4);
       margin-bottom: 6px;
     }
     .tweak-row select, .tweak-row input[type="color"] {
       width: 100%;
-      background: rgba(247,242,236,0.06);
-      border: 1px solid rgba(247,242,236,0.15);
+      background: rgba(245,228,194,0.06);
+      border: 1px solid rgba(245,228,194,0.15);
       color: var(--white);
       padding: 6px 8px;
       font-family: 'Oswald', sans-serif;
@@ -595,7 +630,7 @@
   <section class="hero">
     <div class="hero-content">
       <p class="hero-eyebrow">A New Musical</p>
-      <h1 class="hero-title">HOMEBOUND</h1>
+      <h1 style="margin:0;padding:0;line-height:0;"><img class="hero-title" src="assets/homebound-logo-cream.png?v=1" alt="HOMEBOUND" /></h1>
       <p class="hero-subtitle">Book &nbsp;·&nbsp; Music &nbsp;·&nbsp; Lyrics by Zach Adam</p>
 
       <div class="title-rule">
@@ -605,11 +640,15 @@
       </div>
 
       <div class="hero-poster">
-        <img src="assets/Poster1.jpg?v=2" alt="Homebound — A New Musical" />
+        <img src="assets/Poster1.jpg?v=3" alt="Homebound — A New Musical" />
       </div>
 
       <div class="hero-cta">
-        <a href="#newsletter" class="btn-primary">Join the Mailing List</a>
+        <p class="cta-eyebrow">August 2026, NYC &nbsp;&middot;&nbsp; Broadway Bound Theater Festival</p>
+        <div class="cta-row">
+          <a href="https://broadwayboundtheatrefestival.ludus.com/200532157" target="_blank" rel="noopener" class="btn-primary">Buy Tickets</a>
+          <a href="#newsletter" class="btn-secondary">Join the Mailing List</a>
+        </div>
       </div>
     </div>
 
@@ -645,13 +684,18 @@
         <p class="stat-block-value">Zach Adam</p>
         <p class="stat-block-sub">Book, Music &amp; Lyrics</p>
       </div>
+      <div class="stat-block">
+        <p class="stat-block-title">Directed by</p>
+        <p class="stat-block-value"><a href="https://www.sheasullivan.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(133,10,38,0.35);">Shea Sullivan</a></p>
+        <p class="stat-block-sub">Director</p>
+      </div>
     </div>
   </section>
 
   <!-- ─── NEWSLETTER ─── -->
   <section class="newsletter" id="newsletter">
     <p class="newsletter-label reveal">Stay in the loop</p>
-    <h2 class="newsletter-title reveal">Be the first<br><em style="font-style:italic;color:rgba(247,242,236,0.55)">to know.</em></h2>
+    <h2 class="newsletter-title reveal">Be the first<br><em style="font-style:italic;color:rgba(245,228,194,0.55)">to know.</em></h2>
     <p class="newsletter-sub reveal">Casting announcements, performance dates, behind-the-scenes updates — straight to your inbox.</p>
 
     <div class="reveal kit-form-wrap">
@@ -665,14 +709,18 @@
     <p class="footer-title">HOMEBOUND</p>
     <div>
       <p class="footer-credit-label">Book, Music &amp; Lyrics by</p>
-      <p class="footer-credit-name"><a href="https://zachadam.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(247,242,236,0.3);">Zach Adam</a></p>
+      <p class="footer-credit-name"><a href="https://zachadam.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,228,194,0.3);">Zach Adam</a></p>
+    </div>
+    <div>
+      <p class="footer-credit-label">Directed by</p>
+      <p class="footer-credit-name"><a href="https://www.sheasullivan.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,228,194,0.3);">Shea Sullivan</a></p>
     </div>
     <div>
       <p class="footer-credit-label">Developed in association with</p>
-      <p class="footer-credit-name"><a href="https://thenewtheater.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(247,242,236,0.3);">The New Theater Nashville</a></p>
+      <p class="footer-credit-name"><a href="https://thenewtheater.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,228,194,0.3);">The New Theater Nashville</a></p>
     </div>
     <div class="footer-social">
-      <a href="https://www.instagram.com/zachadamofficial?igsh=NDM4NWYxNmV5eWU1&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/homeboundmusical?igsh=MWZyODJiOHZrYXExeA%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
       <div class="footer-divider"></div>
       <a href="https://www.tiktok.com/@zachadamofficial?_r=1&_t=ZT-95fnZRBvzx8" target="_blank" rel="noopener">TikTok</a>
     </div>
