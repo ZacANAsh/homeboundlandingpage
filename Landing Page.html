@@ -61,7 +61,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 56px 24px 40px;
+      padding: 56px 24px 120px;
     }
 
     .hero-eyebrow {
@@ -132,10 +132,39 @@
     }
 
     .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
       animation: fadeUp 1s 0.9s both;
     }
 
-    .btn-primary {
+    .cta-eyebrow {
+      font-family: 'Special Elite', 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(245,228,194,0.65);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cta-eyebrow::before,
+    .cta-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: rgba(245,228,194,0.35);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary, .btn-secondary {
       display: inline-block;
       font-family: 'Oswald', sans-serif;
       font-weight: 500;
@@ -143,15 +172,26 @@
       letter-spacing: 0.35em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--ink);
-      background: var(--white);
-      padding: 16px 44px;
-      border: none;
+      padding: 16px 36px;
+      border: 1px solid var(--white);
       cursor: pointer;
       transition: background 0.2s, color 0.2s, transform 0.15s;
     }
+    .btn-primary {
+      color: var(--ink);
+      background: var(--white);
+    }
     .btn-primary:hover {
       background: var(--off-white);
+      border-color: var(--off-white);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      color: var(--white);
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      background: rgba(245,228,194,0.08);
       transform: translateY(-2px);
     }
 
@@ -604,7 +644,11 @@
       </div>
 
       <div class="hero-cta">
-        <a href="#newsletter" class="btn-primary">Join the Mailing List</a>
+        <p class="cta-eyebrow">August 2026, NYC &nbsp;&middot;&nbsp; Broadway Bound Theater Festival</p>
+        <div class="cta-row">
+          <a href="https://broadwayboundtheatrefestival.ludus.com/200532157" target="_blank" rel="noopener" class="btn-primary">Buy Tickets</a>
+          <a href="#newsletter" class="btn-secondary">Join the Mailing List</a>
+        </div>
       </div>
     </div>
 
@@ -640,6 +684,11 @@
         <p class="stat-block-value">Zach Adam</p>
         <p class="stat-block-sub">Book, Music &amp; Lyrics</p>
       </div>
+      <div class="stat-block">
+        <p class="stat-block-title">Directed by</p>
+        <p class="stat-block-value"><a href="https://www.sheasullivan.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(133,10,38,0.35);">Shea Sullivan</a></p>
+        <p class="stat-block-sub">Director</p>
+      </div>
     </div>
   </section>
 
@@ -661,6 +710,10 @@
     <div>
       <p class="footer-credit-label">Book, Music &amp; Lyrics by</p>
       <p class="footer-credit-name"><a href="https://zachadam.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,228,194,0.3);">Zach Adam</a></p>
+    </div>
+    <div>
+      <p class="footer-credit-label">Directed by</p>
+      <p class="footer-credit-name"><a href="https://www.sheasullivan.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,228,194,0.3);">Shea Sullivan</a></p>
     </div>
     <div>
       <p class="footer-credit-label">Developed in association with</p>
