@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>HOMEBOUND — Electronic Press Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson:      #850A26;
+      --crimson-dark: #4B0714;
+      --crimson-mid:  #6E0C1B;
+      --crimson-deep: #320509;
+      --cream:        #F5E4C2;
+      --cream-dim:    #C9B58F;
+      --cream-soft:   rgba(245, 228, 194, 0.7);
+      --rule:         rgba(245, 228, 194, 0.18);
+      --rule-strong:  rgba(245, 228, 194, 0.35);
+      --ink:          #1A0606;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      background: var(--crimson-dark);
+      color: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    /* grain overlay across the whole doc */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      mix-blend-mode: overlay;
+    }
+
+    a { color: inherit; }
+
+    /* ─── DOCUMENT FRAME ─────────────────────────────── */
+    .doc {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 56px);
+    }
+
+    /* ─── TOP BAR ────────────────────────────────────── */
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 0 18px;
+      border-bottom: 1px solid var(--rule);
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+    }
+    .topbar .left { text-align: left; }
+    .topbar .center {
+      font-family: 'Special Elite', monospace;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--cream);
+    }
+    .topbar .right { text-align: right; }
+
+    /* ─── MASTHEAD ───────────────────────────────────── */
+    .masthead {
+      padding: clamp(48px, 7vw, 88px) 0 clamp(36px, 5vw, 64px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .masthead-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(40px, 6vw, 88px);
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .masthead-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .masthead-poster {
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    }
+    .masthead-poster img {
+      width: 100%;
+      display: block;
+    }
+
+    .masthead-meta {
+      font-family: 'Special Elite', monospace;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .masthead-meta::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .masthead-wordmark {
+      width: 100%;
+      max-width: 560px;
+      display: block;
+      margin-bottom: 26px;
+    }
+
+    .masthead-logline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    /* facts grid under logline */
+    .factstrip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--rule);
+    }
+    .fact {
+      padding: 16px 18px 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .fact:nth-child(odd) {
+      padding-right: 22px;
+      border-right: 1px solid var(--rule);
+    }
+    .fact:nth-child(even) {
+      padding-left: 22px;
+    }
+    .fact-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 6px;
+    }
+    .fact-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.35;
+      color: var(--cream);
+    }
+    .fact-value a {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245, 228, 194, 0.3);
+    }
+    .fact-value a:hover { border-color: var(--cream); }
+    .fact-sub {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--cream-dim);
+      margin-top: 4px;
+    }
+
+    /* song titles inside synopsis prose */
+    .song {
+      font-family: 'Special Elite', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.78em;
+      letter-spacing: 0.18em;
+      color: var(--cream-dim);
+      white-space: nowrap;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────────── */
+    section.doc-section {
+      padding: clamp(56px, 7vw, 96px) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 32px;
+      align-items: baseline;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 720px) {
+      .section-header { grid-template-columns: 60px 1fr; gap: 18px; }
+    }
+    .section-num {
+      font-family: 'Special Elite', monospace;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--cream-dim);
+      border-top: 1px solid var(--rule-strong);
+      padding-top: 14px;
+    }
+    .section-title-block {
+      border-top: 1px solid var(--rule-strong);
+      padding-top: 8px;
+    }
+    .section-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+    }
+
+    /* ─── SYNOPSIS ───────────────────────────────────── */
+    .synopsis-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .synopsis-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    .pullquote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.2vw, 28px);
+      line-height: 1.3;
+      color: var(--cream);
+      border-left: 2px solid var(--cream);
+      padding-left: 24px;
+    }
+    .pullquote-attr {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-top: 18px;
+    }
+
+    .body-copy {
+      column-gap: 40px;
+    }
+    .body-copy p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--cream);
+      margin-bottom: 1.1em;
+    }
+    .body-copy p:last-child { margin-bottom: 0; }
+    .body-copy p:first-child::first-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 4.2em;
+      line-height: 0.88;
+      float: left;
+      margin: 0.04em 0.1em 0 -0.04em;
+      color: var(--cream);
+    }
+
+    /* ─── MUSIC ──────────────────────────────────────── */
+    .music-frame {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--rule);
+      padding: 6px;
+      border-radius: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .music-frame iframe {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      min-height: 520px;
+    }
+
+    /* ─── TEAM ───────────────────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(36px, 4vw, 64px);
+    }
+    @media (max-width: 880px) {
+      .team-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .bio {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .bio-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .bio-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(26px, 3vw, 36px);
+      letter-spacing: -0.01em;
+      color: var(--cream);
+    }
+    .bio-role {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .bio-links {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+    .bio-links a {
+      text-decoration: none;
+      color: var(--cream);
+      border-bottom: 1px solid var(--rule-strong);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .bio-links a:hover { border-color: var(--cream); }
+
+    .bio-body p {
+      font-size: 16px;
+      line-height: 1.62;
+      margin-bottom: 0.95em;
+      color: var(--cream);
+    }
+    .bio-body p:last-child { margin-bottom: 0; }
+
+    .placeholder {
+      font-style: italic;
+      color: var(--cream-dim);
+      background: rgba(0, 0, 0, 0.18);
+      border-left: 2px dashed var(--rule-strong);
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────── */
+    .contact {
+      padding: clamp(72px, 9vw, 120px) 0 clamp(56px, 7vw, 88px);
+      text-align: center;
+    }
+    .contact-eyebrow {
+      font-family: 'Special Elite', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contact-eyebrow::before,
+    .contact-eyebrow::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--rule-strong);
+    }
+    .contact-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(38px, 5.5vw, 72px);
+      line-height: 1.02;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .contact-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--cream-dim);
+    }
+    .contact-sub {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--cream-soft);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--cream);
+      padding: 18px 36px;
+      border: 1px solid var(--cream);
+      transition: background 0.2s, transform 0.15s, color 0.2s;
+    }
+    .contact-cta:hover {
+      background: var(--off-white, #EBD8B0);
+      transform: translateY(-2px);
+    }
+    .contact-cta .arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .contact-cta:hover .arrow { transform: translateX(4px); }
+
+    .contact-email-fallback {
+      display: block;
+      margin-top: 22px;
+      font-family: 'Special Elite', monospace;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--cream-dim);
+    }
+    .contact-email-fallback a {
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule-strong);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer.epk-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0 32px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    footer.epk-foot a {
+      text-decoration: none;
+      color: var(--cream-dim);
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    footer.epk-foot a:hover {
+      color: var(--cream);
+      border-bottom-color: var(--rule-strong);
+    }
+
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <div class="doc">
+
+    <!-- ─── TOP BAR ─── -->
+    <div class="topbar">
+      <span class="left">Homebound &middot; A New Musical</span>
+      <span class="center">— Electronic Press Kit —</span>
+      <span class="right">Confidential / Industry Only</span>
+    </div>
+
+    <!-- ─── MASTHEAD ─── -->
+    <header class="masthead">
+      <div class="masthead-grid">
+        <div class="masthead-poster">
+          <img src="../assets/Poster1.jpg" alt="Homebound — A New Musical poster" />
+        </div>
+
+        <div class="masthead-text">
+          <p class="masthead-meta">EPK &nbsp;/&nbsp; Edition 01 &nbsp;/&nbsp; 2026</p>
+          <img class="masthead-wordmark" src="../assets/homebound-logo-cream.png" alt="HOMEBOUND" />
+          <p class="masthead-logline">
+            &ldquo;Fun Home meets The Last Five Years in a Tennessee farmhouse.&rdquo;
+          </p>
+
+          <div class="factstrip">
+            <div class="fact">
+              <p class="fact-label">Genre</p>
+              <p class="fact-value">Folk / Country Chamber Musical</p>
+            </div>
+            <div class="fact">
+              <p class="fact-label">Run Time</p>
+              <p class="fact-value">~ 90 min</p>
+              <p class="fact-sub">No intermission</p>
+            </div>
+            <div class="fact">
+              <p class="fact-label">Cast</p>
+              <p class="fact-value">4 Actors</p>
+            </div>
+            <div class="fact">
+              <p class="fact-label">Status</p>
+              <p class="fact-value">Festival Premiere</p>
+            </div>
+            <div class="fact">
+              <p class="fact-label">Premiere</p>
+              <p class="fact-value">August 2026</p>
+              <p class="fact-sub">AMT Theater &middot; W. 45th St, NYC</p>
+            </div>
+            <div class="fact">
+              <p class="fact-label">Festival &amp; Tickets</p>
+              <p class="fact-value"><a href="https://broadwayboundtheatrefestival.ludus.com/200532157" target="_blank" rel="noopener">Broadway Bound Theater Festival &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── 01 SYNOPSIS ─── -->
+    <section class="doc-section">
+      <div class="section-header">
+        <div class="section-num">01 / Synopsis</div>
+        <div class="section-title-block">
+          <p class="section-eyebrow">The Story</p>
+          <h2 class="section-title">Where silence finally meets its deadline.</h2>
+        </div>
+      </div>
+
+      <div class="synopsis-grid">
+        <div class="reveal">
+          <blockquote class="pullquote">
+            Are a father and his son too broken to begin again?
+            <span class="pullquote-attr">Logline</span>
+          </blockquote>
+        </div>
+        <div class="body-copy reveal" style="transition-delay:0.1s">
+          <p>Homebound is a chamber musical about a queer son and the father who couldn't love him out loud. It begins in the first weeks of the 2020 lockdown and unfolds across the year that follows.</p>
+
+          <p>The show opens with Jack, Frank, Lola, and Jackie standing in isolated pools of light &mdash; a musician who stopped playing, a mechanic who only speaks in tools, a wife who disappeared into someone else, a nurse who says she's fine. All four of them are hiding in plain sight (<span class="song">HIDING IN PLAIN SIGHT</span>).</p>
+
+          <p>In Koh Samui, Thailand, in February 2020, Jack is fixing boat engines on the beach when his mother Lola calls: Frank is in the ICU. Jack actively refuses to come home &mdash; until Lola pushes hard enough that he has no defense left. He picks up his guitar &mdash; the first time he's touched it in a long time &mdash; and reckons with the version of himself he's been running from for ten years (<span class="song">ALWAYS AN OUTSIDER</span>). He flies home to Tennessee to find his father very much alive in his recliner, watching cable news. Their first encounter is hostile and immediate; ten years of silence breaks open inside three minutes. When Jackie &mdash; Jack's childhood best friend, now a frontline nurse &mdash; drops in to check Frank's blood pressure, the room briefly opens. After she leaves, Frank tries to say something real for the first time and can't find the words. Jack lets him fail. Jack goes to his old bedroom and calls Lola from Mexico, where she has reinvented herself as a glamorous mezcal-sipping vacationer named &ldquo;Lola 2.0&rdquo; (<span class="song">LOLA 2.0</span>). Jack tells her he's not going to fight with his father this time. <em>Some of us have grown.</em> Lola lets the line hang and pivots to her cocktail. Before Jack can plan his exit, the world shuts down (<span class="song">SHELTER IN PLACE</span>). His return flight bounces. He is trapped in his childhood house with the father he hasn't spoken to in a decade.</p>
+
+          <p>Jack and Frank fall into an uneasy domestic rhythm &mdash; disinfectant wipes, pill schedules, cable news at hostile volume &mdash; punctuated by Jack's chosen composure cracking just enough to expose what's underneath (<span class="song">QUARANTINE RULES</span>). A disastrous haircut with poultry shears yields Frank's most honest admission in years. On the porch, Jack picks up the guitar again and finds the first fragment of a song that's been forming in his head (<span class="song">BLUE TRUCK</span> snippet). Jackie reveals that Frank attended her queer wedding &mdash; the same man who walked out of Jack's graduation. When Rachel calls, Jackie tries to hold it together &mdash; navigating Frank's secret, a manager who calls her wife her &ldquo;roommate,&rdquo; and a job that never stops asking &mdash; before heading back to the hospital, where she rebuilds the wall in song (<span class="song">FRONT LINE</span>). Meanwhile Lola, alone in her hotel room, briefly cracks when she can't find her lipstick and ends up sitting on the floor (<span class="song">LOLA 2.0 REPRISE</span>).</p>
+
+          <p>Jackie arrives at Frank's house carrying a DNR she's signed that morning. She listens to his lungs for the first time &mdash; the cover story dropped &mdash; and tries one last fight: come to the hospital, see Dr. Levi, drain the fluid. Frank refuses. The hospital pulls Jackie onto longer shifts, and the woman who never breaks finally does. Frank &mdash; who has spent the show resisting every gesture of care his son has tried to give him &mdash; pumps a dab of sanitizer into his palm and offers it to her in silence. He asks after Rachel. He arranges a dinner he won't be alive to see. Jack walks in with cardboard boxes, oblivious. Sorting through one of them, he finds a camcorder tape with his own name on it. On it, a younger Frank fumbles through a fifth-birthday message and tells a story about his own father and a broken-down truck &mdash; about things that look fine on the surface and fall apart inside, and about the work of rebuilding them (<span class="song">NOTHING IS TOO BROKEN</span>). Jack realizes his father has been speaking to him in the only language he knows for his entire life.</p>
+
+          <p>At the hospital, Jackie makes a call to a patient's family &mdash; explaining what a ventilator does, absorbing a stranger's anger, holding steady for one more person who needs her. When she hangs up, a phone buzzes. She watches it ring until it stops. In Mexico, Lola listens to a voicemail Frank has left her &mdash; a message about a photo book she left behind twenty years ago. She listens to it twice, and then, for the first time, she calls him back. Frank picks up. &ldquo;It's me.&rdquo; &ldquo;Laura.&rdquo; Lights out.</p>
+
+          <p>The next morning, Frank produces the DNR from his wallet &mdash; it's time &mdash; and asks Jack to sign. Jack reveals that he has known about the cancer for months. He googled the names on the pill bottles and chose to wait, because when somebody isn't ready to say a thing, you don't say it for them. The ICU emergency was a lie &mdash; scripted by Frank, performed by Lola, to get Jack home before it was too late. Jack confronts Frank not just about the deception but about the deeper wound: the day Frank drove him three towns over to a pastor to be fixed. Frank's answer is not a defense. He didn't have the schematics for a son like Jack, and he didn't understand the damage until Jack was already gone. He apologizes &mdash; specifically, naming the act. Then, in the smallest gesture available to him, he asks Jack if he's seeing anyone. &ldquo;I'd have wanted to meet him.&rdquo; Jack signs the DNR &mdash; not as forgiveness, but as presence.</p>
+
+          <p>The weeks that follow are quiet and hard. The three of them exist in separate pools of light as Frank's time runs short (<span class="song">LITTLE BY LITTLE</span>). In his final moments, Frank asks Jack to read aloud a yellowed scrap of paper he has carried in his wallet for twenty years &mdash; a poem Jack wrote at age seven about a blue truck and the moon. Jack reads it. Frank laughs once and lets go.</p>
+
+          <p>The morning of the funeral, Lola arrives in full Mexico Glamour and quickly unravels. She describes standing in Row F at graduation, watching Jack perform, knowing exactly what Frank's silence meant &mdash; and picking up her purse anyway. Not because she agreed, but because she didn't yet know how to be a person who disagreed. Jack forgives her &mdash; the first act of grace he's learned from watching his father try to reach him in the only language he knew (<span class="song">FROM HERE</span>). At the funeral, Jack forgives Frank publicly, and announces he is staying.</p>
+
+          <p>In the days that follow, Jack picks up the phone and books a show at the Rusty Nail &mdash; the same stage where he last performed, the same town that watched him leave. Lola calls Miguel to say she's staying a little longer. At the Rusty Nail, Jackie steps to the microphone and tells the room what she has never said out loud: that watching Jack perform in eyeliner at graduation, shaking but not stopping, was the night she stopped pretending to be the daughter her parents said they wanted. She finds Rachel in the crowd, calls her <em>my wife</em>, and points &mdash; claiming publicly what she'd spent years holding quietly. Jack takes the stage, names his mother in the audience &mdash; here tonight, even though his father isn't anymore &mdash; and transforms his father's legacy and a seven-year-old's terrible poem into a roaring rock anthem about rust, roots, and choosing to stop running (<span class="song">BLUE TRUCK</span>).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 02 MUSIC ─── -->
+    <section class="doc-section">
+      <div class="section-header">
+        <div class="section-num">02 / The Music</div>
+        <div class="section-title-block">
+          <p class="section-eyebrow">Listen</p>
+          <h2 class="section-title">Selected demos from the score.</h2>
+        </div>
+      </div>
+
+      <div class="music-frame reveal">
+        <iframe
+          src="https://samply.app/embed/20a7f62e-ded6-4c46-8baa-d60bb6141f46?si=XRBv44e0C9ZWqsHOzOcgoj13qb92"
+          frameborder="0"
+          allowtransparency="true"
+          title="Homebound — Demo Recordings"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- ─── 03 CREATIVE TEAM ─── -->
+    <section class="doc-section">
+      <div class="section-header">
+        <div class="section-num">03 / Creative Team</div>
+        <div class="section-title-block">
+          <p class="section-eyebrow">The Makers</p>
+          <h2 class="section-title">Who's behind the show.</h2>
+        </div>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- Zach Adam -->
+        <article class="bio reveal">
+          <div class="bio-head">
+            <h3 class="bio-name">Zach Adam</h3>
+            <p class="bio-role">Book &middot; Music &middot; Lyrics</p>
+            <div class="bio-links">
+              <a href="https://zachadam.com" target="_blank" rel="noopener">Site</a>
+              <a href="https://www.instagram.com/zachadamofficial?igsh=NDM4NWYxNmV5eWU1&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+          <div class="bio-body">
+            <p>Zach Adam is a writer-composer whose musicals trace people fighting their way to being heard. He wrote book, music, and lyrics for <em>Homebound</em>, a chamber musical about a queer son and his estranged father trapped together by the 2020 lockdown, currently in development. He is co-writer and composer of <em>Voice!</em>, a fairytale-deconstructing ensemble musical under option by a Broadway-aligned producing team.</p>
+            <p>Before turning to theater, Zach won the Billboard Songwriting Contest and wrote multiple Top 20 hits for artists including Martha Wash. He founded <a href="https://thenewtheater.org" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--rule-strong);text-decoration:none;">The New Theater</a>, a Nashville nonprofit developing original musicals, in 2025.</p>
+          </div>
+        </article>
+
+        <!-- Shea Sullivan -->
+        <article class="bio reveal" style="transition-delay:0.1s">
+          <div class="bio-head">
+            <h3 class="bio-name">Shea Sullivan</h3>
+            <p class="bio-role">Director</p>
+            <div class="bio-links">
+              <a href="https://www.sheasullivan.com" target="_blank" rel="noopener">Site</a>
+            </div>
+          </div>
+          <div class="bio-body">
+            <p>Shea Sullivan, a Chita Rivera Award nominee, was born and raised in Miami, Florida. Super shy &ldquo;two left feet&rdquo; Sullivan started dancing at age 5 and couldn't get enough. By the time she was 12, she was killing it in the tap world, becoming the prot&eacute;g&eacute;e of Tony Award-winning choreographer Henry LeTang. Her career has been greatly influenced by the late Dr. LeTang as well as the late great Gregory Hines. Shea has also worn the hat of lead producer of two Off-Broadway shows &mdash; <em>Pageant!</em> (Drama Desk nomination) and <em>R.R.R.E.D.</em> (DR2).</p>
+            <p>Shea resides in NYC with her partner Katie and their pup, Peanut. She is a choreographer, director, producer, and dance instructor.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ─── 04 CONTACT ─── -->
+    <section class="contact" id="contact">
+      <p class="contact-eyebrow">Inquiries</p>
+      <h2 class="contact-title">Let's talk.<br><em>Press, producing, partnerships.</em></h2>
+      <p class="contact-sub">For booking inquiries, press requests, score materials, or anything else about the show, reach out directly.</p>
+
+      <a class="contact-cta" href="mailto:Homeboundmusical@gmail.com?subject=Homebound%20%E2%80%94%20Inquiry">
+        <span>Email the Team</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <span class="contact-email-fallback">
+        or write to <a href="mailto:Homeboundmusical@gmail.com">Homeboundmusical@gmail.com</a><br>
+        follow <a href="https://www.instagram.com/homeboundmusical?igsh=MWZyODJiOHZrYXExeA%3D%3D&utm_source=qr" target="_blank" rel="noopener">@homeboundmusical</a> on Instagram
+      </span>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="epk-foot">
+      <span>&copy; 2026 Homebound &mdash; A New Musical</span>
+      <span>Electronic Press Kit &middot; v.01</span>
+      <a href="../index.html">Public site &rarr;</a>
+    </footer>
+
+  </div>
+
+  <script>
+    // scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
