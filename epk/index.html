@@ -491,6 +491,149 @@
       border-bottom-color: var(--rule-strong);
     }
 
+    /* ─── FRAMING STATEMENT ─────────────────────── */
+    .framing {
+      padding: clamp(56px, 8vw, 112px) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .framing-inner { max-width: 1000px; }
+    .framing-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .framing-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .framing-quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(27px, 3.8vw, 50px);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      text-wrap: pretty;
+    }
+    .framing-quote .soft {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+    .framing-body {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: clamp(18px, 1.5vw, 21px);
+      line-height: 1.6;
+      color: var(--cream);
+      max-width: 760px;
+      margin-top: 26px;
+      text-wrap: pretty;
+    }
+    .framing-body .soft {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    /* ─── PRODUCTION ─────────────────────────── */
+    .prod-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 48px;
+    }
+    @media (max-width: 720px) {
+      .prod-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    .prod-stat {
+      background: var(--crimson-dark);
+      padding: clamp(22px, 3vw, 34px) clamp(18px, 2vw, 26px);
+    }
+    .prod-stat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(28px, 3.4vw, 46px);
+      line-height: 1;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .prod-stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .prod-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .prod-pitch-head {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(23px, 2.6vw, 33px);
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+    .prod-pitch p {
+      font-size: 17px;
+      line-height: 1.65;
+      margin-bottom: 1em;
+      color: var(--cream);
+    }
+    .prod-pitch p:last-child { margin-bottom: 0; }
+    .rights-card {
+      border: 1px solid var(--rule-strong);
+      padding: 26px 26px 28px;
+    }
+    .rights-card + .rights-card { margin-top: 20px; }
+    .rights-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 12px;
+    }
+    .rights-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.4;
+      color: var(--cream);
+    }
+    .rights-note {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--cream-dim);
+      margin-top: 10px;
+    }
+
+    /* portrait inside a bio card */
+    .bio-portrait {
+      width: 100%;
+      height: clamp(300px, 36vw, 380px);
+      object-fit: cover;
+      object-position: center 16%;
+      display: block;
+      border: 1px solid var(--rule);
+    }
+
     /* reveal on scroll */
     .reveal {
       opacity: 0;
@@ -522,7 +665,7 @@
           <p class="masthead-meta">EPK &nbsp;/&nbsp; Edition 01 &nbsp;/&nbsp; 2026</p>
           <img class="masthead-wordmark" src="../assets/homebound-logo-cream.png" alt="HOMEBOUND" />
           <p class="masthead-logline">
-            &ldquo;Fun Home meets The Last Five Years in a Tennessee farmhouse.&rdquo;
+            &ldquo;Fun Home meets Next to Normal in a Tennessee farmhouse.&rdquo;
           </p>
 
           <div class="factstrip">
@@ -537,7 +680,7 @@
             </div>
             <div class="fact">
               <p class="fact-label">Cast</p>
-              <p class="fact-value">4 Actors</p>
+              <p class="fact-value">4 Actors &amp; 4 Musicians</p>
             </div>
             <div class="fact">
               <p class="fact-label">Status</p>
@@ -557,10 +700,69 @@
       </div>
     </header>
 
-    <!-- ─── 01 SYNOPSIS ─── -->
+    <!-- ─── FRAMING STATEMENT ─── -->
+    <section class="framing">
+      <div class="framing-inner reveal">
+        <p class="framing-eyebrow">The Premise</p>
+        <p class="framing-quote">A queer son and the father who couldn't love him out loud.</p>
+        <p class="framing-body">Ten years after walking out of his own life, Jack &mdash; a runaway musician in Thailand &mdash; is drawn home by his father's failing health. He means to stay a few days. Then the 2020 lockdown bolts the door behind him, sealing the two most uncommunicative men alive into one house for the first time in a decade. Across a year of silence they edge back toward each other &mdash; until a flight out finally opens, and Jack must choose whether to take it. <span class="soft">Some things, it turns out, you can't fix with tools.</span></p>
+      </div>
+    </section>
+
+    <!-- ─── 01 PRODUCTION ─── -->
     <section class="doc-section">
       <div class="section-header">
-        <div class="section-num">01 / Synopsis</div>
+        <div class="section-num">01 / The Production</div>
+        <div class="section-title-block">
+          <p class="section-eyebrow">At a Glance</p>
+          <h2 class="section-title">Small cast. High emotional return.</h2>
+        </div>
+      </div>
+
+      <div class="prod-stats reveal">
+        <div class="prod-stat">
+          <p class="prod-stat-value">4</p>
+          <p class="prod-stat-label">Actors</p>
+        </div>
+        <div class="prod-stat">
+          <p class="prod-stat-value">4</p>
+          <p class="prod-stat-label">Musicians</p>
+        </div>
+        <div class="prod-stat">
+          <p class="prod-stat-value">1</p>
+          <p class="prod-stat-label">Unit Set</p>
+        </div>
+        <div class="prod-stat">
+          <p class="prod-stat-value">Folk / Rock</p>
+          <p class="prod-stat-label">Score</p>
+        </div>
+      </div>
+
+      <div class="prod-grid">
+        <div class="prod-pitch reveal">
+          <p class="prod-pitch-head">A whole world inside one room.</p>
+          <p>Homebound is built for maximum impact and minimal footprint. Four actors, four musicians, and a single unit set &mdash; a Tennessee farmhouse that never changes while everything inside it does. The folk / rock score is carried by a live four-piece band: guitar, bass, drums, and cello, playing alongside the cast.</p>
+          <p>The show is scaled for intimacy. A single room holds an entire decade of distance between a father and son, and the staging asks for nothing more elaborate than that &mdash; well suited to a black box, a 199-seat house, or a commercial stage alike.</p>
+        </div>
+        <div class="prod-side reveal" style="transition-delay:0.1s">
+          <div class="rights-card">
+            <p class="rights-label">Rights</p>
+            <p class="rights-value">Book, Music &amp; Lyrics by Zach Adam. <strong>100% of rights retained.</strong></p>
+            <p class="rights-note">Clean and unencumbered &mdash; no underlying rights, no prior licenses, no entangled options.</p>
+          </div>
+          <div class="rights-card">
+            <p class="rights-label">Trajectory</p>
+            <p class="rights-value">Selected for the 2026 Broadway Bound Theatre Festival.</p>
+            <p class="rights-note">Chosen from hundreds of submissions; premiering August 2026 at AMT Theater, NYC. Developed through The New Theater Nashville.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 02 SYNOPSIS ─── -->
+    <section class="doc-section">
+      <div class="section-header">
+        <div class="section-num">02 / Synopsis</div>
         <div class="section-title-block">
           <p class="section-eyebrow">The Story</p>
           <h2 class="section-title">Where silence finally meets its deadline.</h2>
@@ -601,7 +803,7 @@
     <!-- ─── 02 MUSIC ─── -->
     <section class="doc-section">
       <div class="section-header">
-        <div class="section-num">02 / The Music</div>
+        <div class="section-num">03 / The Music</div>
         <div class="section-title-block">
           <p class="section-eyebrow">Listen</p>
           <h2 class="section-title">Selected demos from the score.</h2>
@@ -621,7 +823,7 @@
     <!-- ─── 03 CREATIVE TEAM ─── -->
     <section class="doc-section">
       <div class="section-header">
-        <div class="section-num">03 / Creative Team</div>
+        <div class="section-num">04 / Creative Team</div>
         <div class="section-title-block">
           <p class="section-eyebrow">The Makers</p>
           <h2 class="section-title">Who's behind the show.</h2>
@@ -632,6 +834,7 @@
 
         <!-- Zach Adam -->
         <article class="bio reveal">
+          <img class="bio-portrait" src="../assets/zach-adam.jpg?v=1" alt="Zach Adam" />
           <div class="bio-head">
             <h3 class="bio-name">Zach Adam</h3>
             <p class="bio-role">Book &middot; Music &middot; Lyrics</p>
@@ -641,8 +844,8 @@
             </div>
           </div>
           <div class="bio-body">
-            <p>Zach Adam is a writer-composer whose musicals trace people fighting their way to being heard. He wrote book, music, and lyrics for <em>Homebound</em>, a chamber musical about a queer son and his estranged father trapped together by the 2020 lockdown, currently in development. He is co-writer and composer of <em>Voice!</em>, a fairytale-deconstructing ensemble musical under option by a Broadway-aligned producing team.</p>
-            <p>Before turning to theater, Zach won the Billboard Songwriting Contest and wrote multiple Top 20 hits for artists including Martha Wash. He founded <a href="https://thenewtheater.org" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--rule-strong);text-decoration:none;">The New Theater</a>, a Nashville nonprofit developing original musicals, in 2025.</p>
+            <p>Zach Adam is a Billboard Songwriting Contest winner, multi-Top-20 hitmaker, PMG recording artist and BMG staff writer, and recipient of ACUM Composer of the Year and Song of the Year awards.</p>
+            <p>As a writer-composer of musical theater, he wrote book, music, and lyrics for <em>Homebound</em>, a chamber musical about a queer son and his estranged father trapped together by the 2020 lockdown, selected from hundreds of submissions for the 2026 Broadway Bound Theatre Festival at AMT Theater in NYC. He is co-writer and composer of <em>Voice!</em>, chosen as the sole musical selection for AMDA SummerFest 2026. Founder, <a href="https://thenewtheater.org" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--rule-strong);text-decoration:none;">The New Theater Nashville</a>.</p>
           </div>
         </article>
 
